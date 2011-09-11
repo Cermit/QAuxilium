@@ -1,0 +1,11 @@
+[Project]
+category = Development
+maintainer = Boris Pohler
+appname = PySide app
+section = development
+pyversion = 2.7
+project = QAuxilium
+email = email@example.com
+desc = A PySide example
+template = fremantle
+
