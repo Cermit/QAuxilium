@@ -42,44 +42,17 @@ Text { //just the title
     anchors.topMargin: 10
 }
 
-Rectangle { //background of the box
-    id: class_box
-    objectName: "class_box"
-    height: 275
-    width: 450
-    radius: 15
-    color: "white"
-    border.width: 2
-    border.color: "grey"
+Liste{
+    id: class_list
+    listen_height: 275
+    listen_width: 450
+    //listen_text: klasse
+    listen_model: Classes_Model
+
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.top: parent.top
     anchors.topMargin: 80
 }
-
-Flickable {
-    id: flick_classes
-    objectName: "flick_classes"
-    height: 275
-    width: 450
-    clip: true  //so the text stays "in the box" - not sure why, but it's not in the doc!
-    contentHeight: class_name.height
-    contentWidth: class_name.width
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.top: parent.top
-    anchors.topMargin: 80
-
-
-    Text { //AT THE MOMENT JUST TEXT - LATER IT SHOULD BE A LISTVIEW
-            id: class_name
-            anchors.horizontalCenter: class_box.horizontalCenter
-            anchors.top: class_box.top
-            anchors.left: parent.left
-            anchors.leftMargin: 5
-            text: "Klasse 9a: Informatik<p>Klasse 12/2: Mathe<p>Klasse 7b: Geschichte<p>Klasse 6a: Geschichte<p>Kurs 11/2 Englisch<p>Klasse 5a Informatik"
-            font.pointSize: 24
-            width: 450
-        }
-    }
 
 //start menu with buttons to all importent functions for administrate your students
     //first menu button - all marks
@@ -91,7 +64,7 @@ Flickable {
         color: notenbuch_clicked.pressed ? "lightblue" : "white"
         border.color: "grey"
         radius: 15
-        anchors.top: class_box.bottom
+        anchors.top: class_list.bottom
         anchors.topMargin: 20
         anchors.horizontalCenter: parent.horizontalCenter
 
