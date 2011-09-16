@@ -12,7 +12,28 @@ Hier werden die freiwillig gewählten/vorgenommenen Aufgaben eingetragen, bitte 
 	Gabriel
 	20.09.2011 (ausgenommen Menüs)
 
+- Entwurf einer Datenbank in SQLite
+       Boris
+       30.09.2011
+
 
 - Menü Punkte:
+    Tagebuchansicht:  -Fehlstunden eintragen (zeigt checkable list mit allen schülern)
+                      -Hausaufgaben vergessen (s.o.)
+                      -alle offenen Fehlstunden (zeigt checkable list mit allen noch nicht entschuldigten fehlstunden)
+                      -Übersicht Fehlstunden (berechnet eine tabelle mit entschuldigten und unentschudligten fehlstunden in einem auswählbaren zeitintervall)
+    Hauptmenü: -Klasse importieren (anlegen von kursen/klassen)
+               -Konfiguration (Settings aufrufen: Lehrername, Name der Schule, Schuljahr, Bildverzeichnis für Schülerbilder, Quartalszeiten für Oberstufe, ...)
+
+               -longpress auf einen kurs zeigt 
+                notenkategorie hinzufügen/löschen
+                gewichtung festlegen
+                schüler bearbeiten/anlegen/löschen
+                kurs löschen
+
+    Notenbuch: muss ich nochmal überlegen, bin mit der bisherigen Menüführung unzufrieden, weil umständlich
+    Einzelansicht: Schüler direkt auswählbar (zeigt list mit allen schülern des kurses zur auswahl)
+               
+    
 
 
