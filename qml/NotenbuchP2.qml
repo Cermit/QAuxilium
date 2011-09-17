@@ -27,7 +27,7 @@ Toolbar_Menu {
 Text { //just the title
     id: noten_name_title
     objectName: "noten_name_title"
-    text: "Niels Bohr"
+    text: "Niels Bohr"                       //Änderungen nötig um Namen anzupassen an geklickten Namen
     font.family: "Nokia Pure Text"
     font.pointSize: 32
     color: "lightblue"
@@ -37,42 +37,28 @@ Text { //just the title
     anchors.topMargin: 10
 }
 
-Rectangle { //background of the box
-    id: mark_box
-    objectName: "mark_box"
-    height: 605
-    width: 450
-    radius: 15
-    color: "white"
-    border.width: 2
-    border.color: "grey"
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.top: parent.top
-    anchors.topMargin: 80
-}
+Rectangle {
+        id: class_list
+        width: 450
+        height: 605
+        radius: 15
+        color: "white"
+        border.width: 2
+        border.color: "grey"
 
-Flickable {
-    id: flick_mark
-    objectName: "flick_mark"
-    height: 605
-    width: 450
-    clip: true  //so the text stays "in the box" - not sure why, but it's not in the doc!
-    contentHeight: student_marks.height
-    contentWidth: student_marks.width
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.top: parent.top
-    anchors.topMargin: 80
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 80
 
-
-    Text { //AT THE MOMENT JUST TEXT - LATER IT SHOULD BE A LISTVIEW
-            id: student_marks
-            anchors.horizontalCenter: mark_box.horizontalCenter
-            anchors.top: mark_box.top
-            anchors.left: parent.left
-            anchors.leftMargin: 5
-            text: "1. Klausur: 1+<p>2. Klausur: 2<p>Leistungskontrolle: 1-<p>Referat: 1"
-            font.pointSize: 24
-            width: 450
+    ListView {
+        id: liste
+        model: Marks_Model{}
+        anchors.fill: parent
+        clip: true
+        interactive: true
+        delegate: Delegater{
+        model_text: model.note
+            }
         }
     }
 }
