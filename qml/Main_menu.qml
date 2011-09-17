@@ -42,17 +42,30 @@ Text { //just the title
     anchors.topMargin: 10
 }
 
-Liste{
-    id: class_list
-    listen_height: 275
-    listen_width: 450
-    //listen_text: klasse
-    listen_model: Classes_Model
+Rectangle {
+        id: class_list
+        width: 450
+        height: 275
+        radius: 15
+        color: "white"
+        border.width: 2
+        border.color: "grey"
 
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.top: parent.top
-    anchors.topMargin: 80
-}
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 80
+
+    ListView {
+        id: liste
+        model: Classes_Model{}
+        anchors.fill: parent
+        clip: true
+        interactive: true
+        delegate: Delegater{
+        model_text: model.klasse
+        }
+        }
+    }
 
 //start menu with buttons to all importent functions for administrate your students
     //first menu button - all marks
