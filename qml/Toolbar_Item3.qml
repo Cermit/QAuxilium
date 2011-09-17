@@ -12,7 +12,7 @@ Rectangle {
     Text {
         id: menu_item_img
         anchors.centerIn: parent
-        text: "Photo"
+        text: ""
         font.family: "Nokia Pure Text"
         color: "black"
         verticalAlignment: Text.AlignVCenter
