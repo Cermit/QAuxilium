@@ -37,43 +37,28 @@ Text { //diary title
     anchors.topMargin: 10
 }
 
-Rectangle { //background of the box
-    id: diary_box
-    objectName: "diary_box"
-    height: 275
-    width: 450
-    radius: 15
-    color: "white"
-    border.width: 2
-    border.color: "grey"
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.top: parent.top
-    anchors.topMargin: 80
-}
+Rectangle {
+        id: diary_box
+        width: 450
+        height: 275
+        radius: 15
+        color: "white"
+        border.width: 2
+        border.color: "grey"
 
-Flickable {
-    id: flick_diary
-    objectName: "flick_diary"
-    height: 275
-    width: 450
-    clip: true  //so the text stays "in the box" - not sure why, but it's not in the doc!
-    contentHeight: diary_dates.height
-    contentWidth: diary_dates.width
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.top: parent.top
-    anchors.topMargin: 80
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 80
 
-
-    Text { //AT THE MOMENT JUST TEXT - LATER IT SHOULD BE A LISTVIEW
-            id: diary_dates
-            objectName: "diary_dates"
-            anchors.horizontalCenter: diary_box.horizontalCenter
-            anchors.top: diary_box.top
-            anchors.left: parent.left
-            anchors.leftMargin: 5
-            text: "28.09.10 (Informatik)<p>05.10.10 (Mathe)<p>12.10.10 (G/R/W)"
-            font.pointSize: 24
-            width: 450
+    ListView {
+        id: liste
+        model: Diary_lessons_Model{}
+        anchors.fill: parent
+        clip: true
+        interactive: true
+        delegate: Delegater{
+        model_text: model.lesson
+        }
         }
     }
 
