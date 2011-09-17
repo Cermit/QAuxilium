@@ -19,6 +19,13 @@ Toolbar_Back{
 Toolbar_Item3{
     id: toolbar_item3
     objectName: "toolbar_item3"
+
+    Image {
+        width: 56
+        height: 48
+        source: "photo.png"
+        anchors.centerIn: parent
+    }
 }
 
 //---------------------------------now first unique app elements-----------------------------------
@@ -38,9 +45,16 @@ Text { //just the title
     anchors.topMargin: 10
 }
 
-Rectangle {
+Image {
     id: photo_window
-    objectName: photo_window
+    objectName: "photo_window"
+
+    width: 450
+    height: 605
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.top: parent.top
+    anchors.topMargin: 80
+    source: "img/photo.jpg"
 }
 
 
