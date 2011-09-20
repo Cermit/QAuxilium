@@ -1,4 +1,6 @@
 import QtQuick 1.0
+import "Components"
+import "Models"
 
 //creates the main window
 Workspace {

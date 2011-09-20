@@ -1,4 +1,6 @@
 import QtQuick 1.0
+import "Components"
+import "Models"
 
 //creates the main window
 Workspace {
@@ -76,45 +78,27 @@ Text {//title for missing homework
     anchors.topMargin: 5
 }
 
-Rectangle {//background for flickbox with missing homework
-    id: singleview_missing_homework_bg
-    objectName: "singleview_missing_homework_bg"
-    height: 90
-    width: 290
-    radius: 15
-    border.color: "grey"
-    color: "white"
-    anchors.right: parent.right
-    anchors.rightMargin: 10
-    anchors.top: singleview_homework.bottom
-    anchors.topMargin: 5
-}
+Rectangle { // Kann auch raus? Oder so und dafür "nur" im Stundentagebuch auftauchen?
+        id: singleview_missing_homework
+        width: 290
+        height: 90
+        radius: 15
+        color: "white"
+        border.width: 2
+        border.color: "grey"
 
-Flickable {
-    id: singleview_homework_flick
-    objectName: "singleview_homework_flick"
-    height: 90
-    width: 290
-    clip: true  //so the text stays "in the box" - not sure why, but it's not in the doc!
-    contentHeight: missing_homework.height
-    contentWidth: missing_homework.width
-    anchors.right: parent.right
-    anchors.rightMargin: 10
-    anchors.top: singleview_homework.bottom
-    anchors.topMargin: 5
+        anchors.right: parent.right
+        anchors.rightMargin: 10
+        anchors.top: singleview_homework.bottom
+        anchors.topMargin: 5
 
-
-    Text { //AT THE MOMENT JUST TEXT - LATER IT SHOULD BE A LISTVIEW
-            id: missing_homework
-            objectName: "missing_homework"
-            anchors.horizontalCenter: mark_box.horizontalCenter
-            anchors.top: mark_box.top
-            anchors.left: parent.left
-            anchors.leftMargin: 5
-            text: "09.09.11: Python Skript"
-            font.pointSize: 18
-            width: 290
-        }
+    TextEdit {
+        width: 280
+        height: 85
+        anchors.centerIn: parent
+        wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
+        font.pointSize: 18
+    }
     }
 
 Rectangle {
@@ -124,49 +108,33 @@ Rectangle {
     width: parent.width-20
     color: "grey"
     anchors.horizontalCenter: parent.horizontalCenter
-    anchors.top: singleview_missing_homework_bg.bottom
+    anchors.top: singleview_missing_homework.bottom
     anchors.topMargin: 10
 }
 
-Rectangle { //background of the box
-    id: singleview_mark_box
-    objectName: "singleview_mark_box"
-    height: 410
-    width: 450
-    radius: 15
-    color: "white"
-    border.width: 2
-    border.color: "grey"
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.top: singleview_spacer.bottom
-    anchors.topMargin: 20
-}
+Rectangle {
+        id: singleview_marks
+        width: 450
+        height: 410
+        radius: 15
+        color: "white"
+        border.width: 2
+        border.color: "grey"
 
-Flickable {
-    id: flick_mark_singleview
-    objectName: "flick_mark_singleview"
-    height: 410
-    width: 450
-    clip: true  //so the text stays "in the box" - not sure why, but it's not in the doc!
-    contentHeight: student_marks_singleview.height
-    contentWidth: student_marks_singleview.width
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.top: singleview_spacer.bottom
-    anchors.topMargin: 20
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: singleview_spacer.bottom
+        anchors.topMargin: 20
 
-
-    Text { //AT THE MOMENT JUST TEXT - LATER IT SHOULD BE A LISTVIEW
-            id: student_marks_singleview
-            objectName: "student_marks_singleview"
-            anchors.horizontalCenter: mark_box_singleview.horizontalCenter
-            anchors.top: mark_box_singleview.top
-            anchors.left: parent.left
-            anchors.leftMargin: 5
-            text: "1. Klausur: 1+<p>2. Klausur: 2<p>Leistungskontrolle: 1-<p>Referat: 1"
-            font.pointSize: 24
-            width: 450
+    ListView {
+        id: liste
+        model: Marks_Model{}
+        anchors.fill: parent
+        clip: true
+        interactive: true
+        delegate: Delegater{
+        model_text: model.note
+        }
         }
     }
-
 
 }

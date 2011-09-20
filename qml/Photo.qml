@@ -1,4 +1,6 @@
 import QtQuick 1.0
+import "Components"
+import "Models"
 
 //creates the main window of the app
 Workspace {
@@ -19,14 +21,8 @@ Toolbar_Back{
 Toolbar_Item3{
     id: toolbar_item3
     objectName: "toolbar_item3"
-
-    Image {
-        width: 56
-        height: 48
-        source: "photo.png"
-        anchors.centerIn: parent
+    picture:  "Components/img/photo.png"
     }
-}
 
 //---------------------------------now first unique app elements-----------------------------------
 

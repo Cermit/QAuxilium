@@ -1,0 +1,51 @@
+QAuxilium - QML Dokumentation
+-----------------------------
+
+In dieser Datei findet sich eine zusätzliche Dokumentation zum besseren Verständnis der QML Dateien und Struktur.
+Da die UI bisher nicht fertig ist und Änderungen unterliegt können sich auch hier Änderungen ergeben!
+
+-----------------------------
+QAuxilium lädt die "main.qml", welche als Componenten die einzelnen Programm Seiten lädt und die Übergänge 
+(Animationen/Transitions) zwischen dem Hauptmenü und den einzelnen Seiten organisiert, realisiert als States.
+
+Diese Lösung wurde gewählt, da diese App auf möglichst viele Plattformen portiert werden soll. Leider sind auf
+vielen Plattformen (noch) keine QtComponents verfügbar. Daher schreiben wir einen relativ großen Teil selbst,
+statt auf fertige Elemente zuzugreifen. Die App orientiert sich dabei an Harmattan, einige QMLs sind nur dafür gedacht!
+
+In den verschiedenen Seiten werden die jeweilig relevanten Menüs integriert.
+
+Anbei eine Liste der QML Dateien und deren Funktion:
+
+- CheckList.qml 		Grundlage für ListView welche eine Check-Funktion bietet
+
+- Classes_Model.qml		Lediglich Platzhalter für Listviews - wird später durch Python Datenbank ersetzt
+
+- Delegater.qml			Komponente die das Design der ListViews steuert
+
+- Diary_lessons_Model.qml 	Lediglich Platzhalter für Listviews - wird später durch Python Datenbank ersetzt
+
+- Einzelansicht.qml		Einzelansicht der jeweiligen Schüler
+
+- main.qml			Hauptdatei die per Python geladen wird
+
+- Marks_Model.qml		Lediglich Platzhalter für Listviews - wird später durch Python Datenbank ersetzt
+
+- NotenbuchP1.qml		1. Seite der Notenübersicht (wird geändert)
+
+- NotenbuchP2.qml		2. Seite der Notenübersicht (wird geändert)
+
+- Photo.qml			Seite welche später die Aufnahme neuer Fotos erlauben wird
+
+- Students_Model.qml		Lediglich Platzhalter für Listviews - wird später durch Python Datenbank ersetzt
+
+- Tagebuch.qml			Seite mit "Tagebuch" über die einzelnen Stunden mit verschiedenen Informationen
+
+- Toolbar.qml			Toolbar im Harmattan Style für alle Geräte
+
+- Toolbar_Back.qml		Zurück Button der Toolbar
+
+- Toolbar_Item1-5			Toolbar Buttons welche wie in Harmattan angeordnet werden können
+
+- Toolbar_Menu.qml		Menu Taste für die Toolbar
+
+- Workspace			Grundlegendes App-Fenster, welchem Elemente wie Toolbar und Co. untergeordnet werden sollten

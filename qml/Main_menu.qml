@@ -1,4 +1,7 @@
 import QtQuick 1.0
+import "Menus"
+import "Components"
+import "Models"
 
 //creates the main window of the app
 Workspace {
@@ -21,10 +24,30 @@ Toolbar_Item1{
 Toolbar_Menu {
     id: toolbar_menu
     objectName: "toolbar_menu"
+
+    MouseArea {
+        id: menu_item_clicked
+        anchors.fill: parent
+        onClicked: {
+            workspace.state = "main_menu_menu"
+        }
+    }
 }
 
+Main_Menu_Menu{
+    id: main_menu_menu
+}
 
-
+states: [
+    State {
+    name: "main_menu_menu"
+    PropertyChanges {
+        target: main_menu_menu
+        y: 0
+        z: 10
+    }
+}
+]
 //---------------------------------now first unique app elements-----------------------------------
 
 //text box of the class you want to administrate
